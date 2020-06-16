@@ -1,0 +1,26 @@
+class Solution(object):
+    def isValid(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        if len(s)==0:
+            return True
+        opparen=['[','{','(']
+        clparen=[']','}',')']
+        stack1=[]
+        for i in s:
+            if i in opparen:
+                stack1.append(i)
+            elif i in clparen:
+                k=clparen.index(i)
+                if(len(stack1)>0) and  opparen[k]==stack1[len(stack1)-1]:
+                    stack1.pop()
+                else:
+                    return False
+        if len(stack1)==0:
+             return True
+        
+
+
+            
