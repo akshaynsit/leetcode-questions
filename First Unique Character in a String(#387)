@@ -1,0 +1,25 @@
+class Solution(object):
+    def firstUniqChar(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        d={}
+        
+        for i in range(len(s)):
+            if s[i] in d:
+                d[s[i]]=len(s)+1
+            else:
+                d[s[i]]=i
+        m=len(s)+1
+        for k,v in d.items():
+            if v<m:
+                m=v
+        if m<len(s)+1:
+            return m
+        else:
+            return -1
+                
+            
+        
+        
