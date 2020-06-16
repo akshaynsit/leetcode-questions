@@ -1,0 +1,17 @@
+class Solution(object):
+    def missingNumber(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        k=sum(nums)
+        n=len(nums)
+        s1=(n*(n-1)//2)
+        p=abs(s1-k)
+        if p==0:
+            if min(nums)!=0:
+                return 0
+            else:
+                return (max(nums)+1)
+        t=max(nums)-p
+        return t
