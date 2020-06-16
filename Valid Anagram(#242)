@@ -1,0 +1,17 @@
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        n1=len(s)
+        n2=len(t)
+        if (n1!=n2):
+            return False
+        if(n1==0 and n2==0):
+            return True
+        char1=256
+        count1=[0]*256
+        for letter in s:
+            count1[ord(letter)]+=1
+        for letter in t:
+            count1[ord(letter)]-=1
+        if max(count1)==0:
+            return True
+        return False
