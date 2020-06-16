@@ -1,0 +1,17 @@
+class Solution(object):
+    def isPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        s=''.join(i for i in s if i.isalnum()).lower()
+        k=len(s)//2
+        for i in  range(k):
+            if s[i]!=s[len(s)-1-i]:
+                return False
+        return True
+
+            
+            
+    
+        
