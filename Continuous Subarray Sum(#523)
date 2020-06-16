@@ -1,0 +1,17 @@
+class Solution(object):
+    def checkSubarraySum(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: bool
+        """
+        sumcr=nums[0]
+        for i in range(1,len(nums)):
+            while (sumcr<k):
+                sumcr=sumcr+nums[i]
+            if sumcr==k:
+                return True
+        
+            while sumcr>k:
+                sumcr=sumcr-nums[i-1]
+        return False
