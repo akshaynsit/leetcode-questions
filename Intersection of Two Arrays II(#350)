@@ -1,0 +1,29 @@
+class Solution(object):
+    def intersect(self, nums1, nums2):
+        """
+        :type nums1: List[int]
+        :type nums2: List[int]
+        :rtype: List[int]
+        """
+        d = {}
+        a = []
+        
+        if len(nums1) == 0 or len(nums2) == 0:
+            return a
+        
+        for i in range(len(nums1)):
+            if nums1[i] in d:
+                d[nums1[i]] += 1
+            else:
+                d[nums1[i]] = 1
+            
+        for j in range(len(nums2)):
+            if nums2[j] in d and d[nums2[j]] > 0:
+                a.append(nums2[j])
+                d[nums2[j]] -= 1
+                
+        return a               
+                
+            
+        
+        
